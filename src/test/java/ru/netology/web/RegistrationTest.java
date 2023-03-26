@@ -24,8 +24,6 @@ class RegistrationTest {
                     "Йошкар-Ола, 10, мал буквов, +79999999999"
             })
     void shouldBookCardCorrectInput(String city,int days, String name, String phoneNumber) {
-        Configuration.holdBrowserOpen = true;
-
         open("http://localhost:9999");
         $("[placeholder=Город]").setValue(city);
         $("[data-test-id=date] input").sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
@@ -42,8 +40,6 @@ class RegistrationTest {
     @ParameterizedTest
     @ValueSource(ints = 7)
     void shouldBookCardCorrectInputAutocomplete(int days) {
-        Configuration.holdBrowserOpen = true;
-
         open("http://localhost:9999");
         $("[placeholder=Город]").sendKeys("С" + "а");
         $$(".menu-item").find(exactText("Самара")).click();
