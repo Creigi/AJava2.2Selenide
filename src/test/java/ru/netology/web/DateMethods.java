@@ -4,15 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class DateMethods {
-    public String Date(int days) {
-        DateTimeFormatter form = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        LocalDate currentDate = LocalDate.now().plusDays(days);
-        String inputDate = currentDate.format(form);
-        return inputDate;
-    }
-
-    public String Date1(int days){
-        DateTimeFormatter form = DateTimeFormatter.ofPattern("d");
+    public String inputDate(int days, String pattern) {
+        DateTimeFormatter form = DateTimeFormatter.ofPattern(pattern);
         LocalDate currentDate = LocalDate.now().plusDays(days);
         String inputDate = currentDate.format(form);
         return inputDate;

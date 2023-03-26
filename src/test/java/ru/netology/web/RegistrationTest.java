@@ -27,14 +27,14 @@ class RegistrationTest {
         open("http://localhost:9999");
         $("[placeholder=Город]").setValue(city);
         $("[data-test-id=date] input").sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(date.Date(days));
+        $("[data-test-id=date] input").setValue(date.inputDate(days, "dd.MM.yyyy"));
         $("[data-test-id=name] input").setValue(name);
         $("[data-test-id=phone] input").setValue(phoneNumber);
         $("[data-test-id=agreement]").click();
         $(".button").click();
 
         $("[data-test-id=notification] .notification__content").shouldBe(visible, Duration.ofSeconds(15));
-        $x("//div[@data-test-id='notification']").shouldHave(Condition.matchText(date.Date(days)));
+        $x("//div[@data-test-id='notification']").shouldHave(Condition.matchText(date.inputDate(days, "dd.MM.yyyy")));
     }
 
     @ParameterizedTest
@@ -44,11 +44,11 @@ class RegistrationTest {
         $("[placeholder=Город]").sendKeys("С" + "а");
         $$(".menu-item").find(exactText("Самара")).click();
         $(".icon_name_calendar").click();
-        if (!$$("table .calendar__day").find(exactText(date.Date1(days))).has(cssClass("calendar__day_type_off"))) {
-            $$("table .calendar__day").find(exactText(date.Date1(days))).click();
+        if (!$$("table .calendar__day").find(exactText(date.inputDate(days, "d"))).has(cssClass("calendar__day_type_off"))) {
+            $$("table .calendar__day").find(exactText(date.inputDate(days, "d"))).click();
         } else {
             $("[data-step='1'].calendar__arrow_direction_right").click();
-            $$("table .calendar__day").find(exactText(date.Date1(days))).click();
+            $$("table .calendar__day").find(exactText(date.inputDate(days, "d"))).click();
         }
         $("[data-test-id=name] input").setValue("Макар");
         $("[data-test-id=phone] input").setValue("+79012345678");
@@ -56,6 +56,6 @@ class RegistrationTest {
         $(".button").click();
 
         $("[data-test-id=notification] .notification__content").shouldBe(visible, Duration.ofSeconds(15));
-        $x("//div[@data-test-id='notification']").shouldHave(Condition.matchText(date.Date(days)));
+        $x("//div[@data-test-id='notification']").shouldHave(Condition.matchText(date.inputDate(days, "dd.MM.yyyy")));
     }
 }

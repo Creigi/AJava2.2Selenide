@@ -21,7 +21,7 @@ public class RegistrationUnhappyTest {
 
         $("[placeholder=Город]").setValue(city);
         $("[data-test-id=date] input").sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(date.Date(7));
+        $("[data-test-id=date] input").setValue(date.inputDate(7, "dd.MM.yyyy"));
         $("[data-test-id=name] input").setValue("Виталий");
         $("[data-test-id=phone] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -38,7 +38,7 @@ public class RegistrationUnhappyTest {
 
         $("[placeholder=Город]").setValue("Самара");
         $("[data-test-id=date] input").sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(date.Date(7));
+        $("[data-test-id=date] input").setValue(date.inputDate(7, "dd.MM.yyyy"));
         $("[data-test-id=name] input").setValue(name);
         $("[data-test-id=phone] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -55,7 +55,7 @@ public class RegistrationUnhappyTest {
 
         $("[placeholder=Город]").setValue("Самара");
         $("[data-test-id=date] input").sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(date.Date(7));
+        $("[data-test-id=date] input").setValue(date.inputDate(7, "dd.MM.yyyy"));
         $("[data-test-id=name] input").setValue("Кот Леопольд");
         $("[data-test-id=phone] input").setValue(number);
         $("[data-test-id=agreement]").click();
@@ -72,7 +72,7 @@ public class RegistrationUnhappyTest {
 
         $("[placeholder=Город]").setValue("Самара");
         $("[data-test-id=date] input").sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(date.Date(days));
+        $("[data-test-id=date] input").setValue(date.inputDate(days, "dd.MM.yyyy"));
         $("[data-test-id=name] input").setValue("Кот Леопольд");
         $("[data-test-id=phone] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -88,7 +88,7 @@ public class RegistrationUnhappyTest {
 
         $("[placeholder=Город]").setValue("Самара");
         $("[data-test-id=date] input").sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(date.Date(7));
+        $("[data-test-id=date] input").setValue(date.inputDate(7, "dd.MM.yyyy"));
         $("[data-test-id=name] input").setValue("Кот Леопольд");
         $("[data-test-id=phone] input").setValue("+79012345678");
         $(".button").click();
